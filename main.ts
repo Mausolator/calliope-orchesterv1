@@ -2,16 +2,23 @@ enum RadioMessage {
     message1 = 49434
 }
 radio.onReceivedNumber(function (receivedNumber) {
+    while (Claim == receivedNumber) {
+        Claim = randint(0, 2)
+    }
+    basic.showNumber(Claim)
+    radio.sendNumber(Claim)
     if (Claim == receivedNumber) {
         while (Claim == receivedNumber) {
             Claim = randint(0, 2)
         }
     }
-    basic.showString("Claim:")
-    basic.showNumber(Claim)
 })
+function Dirigent_Auswahl () {
+	
+}
 let Claim = 0
 radio.setGroup(87)
-basic.pause(randint(0, 200))
 Claim = randint(0, 2)
-radio.sendMessage(Claim)
+basic.showNumber(Claim)
+radio.sendNumber(Claim)
+basic.showNumber(Claim)
